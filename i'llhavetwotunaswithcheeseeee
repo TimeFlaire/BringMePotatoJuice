@@ -46,7 +46,7 @@ if game.PlaceId == 189707 then
         for i,v in pairs(workspace:FindPartsInRegion3(Region3.new(Vector3.new(-166.5,40.90003204345703,15.499961853027344),Vector3.new(-166.5,40.90003204345703,15.499961853027344)),nil,math.huge)) do if v.Name == "Curtain" then v:Destroy() end end
         
     loadstring(game:HttpGet("https://raw.githubusercontent.com/birdwastaken/birdscripts/main/holeinthewall.lua"))()
-    elseif game.PlaceId == 104278047642 then
+    elseif game.PlaceId == 10427804764 then
         local music = game:GetService("SoundService"):FindFirstChild("Music")
         if music then
         music:Destroy()
@@ -211,7 +211,7 @@ local Players = game:GetService("Players")
     postToChatToggle.Size = UDim2.new(0, 150, 0, 30)
     postToChatToggle.Position = UDim2.new(0.5, -75, 0.5, 15)
     postToChatToggle.Text = "VIP Avatar Hats"
-    postToChatToggle.BackgroundColor3 = Color3.fromRGB(38, 50, 56)
+    postToChatToggle.BackgroundColor3 = Color3.fromRGB(245, 0, 87)
     postToChatToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
     postToChatToggle.MouseButton1Click:Connect(function()
         game:GetService("Players").LocalPlayer.PlayerGui.VIPAvatarShop.Enabled = true
