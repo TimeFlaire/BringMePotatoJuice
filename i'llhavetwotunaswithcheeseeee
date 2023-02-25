@@ -148,29 +148,29 @@ local Players = game:GetService("Players")
     rebutton.Parent = frame
     rebutton.Size = UDim2.new(0, 150, 0, 30)
     rebutton.Position = UDim2.new(0.5, -75, 0.5, 45)
-    rebutton.Text = "Blue Lighting: Off"
+    rebutton.Text = "Rainbow Mode: Off"
     rebutton.BackgroundColor3 = Color3.fromRGB(213, 0, 0)
     rebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
     rebutton.MouseButton1Click:Connect(function()
-        if rebutton.Text == "Blue Lighting: Off" then
-            voidLight.Enabled = true
-                rebutton.BackgroundColor3 = Color3.fromRGB(0, 96,100)
-            rebutton.Text = "Blue Lighting: On"
+        if rebutton.Text == "Rainbow Mode: Off" then
+             rebutton.BackgroundColor3 = Color3.fromRGB(0, 96,100)
+            rebutton.Text = "Rainbow Mode: On"
+
         else
             rebutton.BackgroundColor3 = Color3.fromRGB(213, 0, 0)
-
             rebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
-            rebutton.Text = "Blue Lighting: Off"
-            voidLight.Enabled = false
+            rebutton.Text = "Rainbow Mode: Off"
         end
     end)
     
+    
 
     rebutton.MouseButton1Click:Connect(function()
-        if rebutton.Text == "Blue Lighting: On" then
-        voidLight.Enabled = true
-        elseif rebutton.Text == "Blue Lighting: Off" then
-            voidLight.Enabled = false
+        if rebutton.Text == "Rainbow Mode: On" then
+            Event:FireServer("White", math.random(1, 7))
+        elseif rebutton.Text == "Rainbow Mode: Off" then
+            repeat Event:FireServer("Rainbow", math.random(1, 7)) wait(.1) until rebutton.Text == "Rainbow Mode: Off"
+
             
         end
     end)
@@ -205,7 +205,8 @@ local Players = game:GetService("Players")
 
         
     elseif pole1 == "Rainbow" then
-        repeat  Event:FireServer("Rainbow", math.random(1, 7)) wait(.1) until pole1 ~= "Rainbow" 
+        rebutton.Text = "Rainbow Mode: On"
+        repeat Event:FireServer("Rainbow", math.random(1, 7)) wait(.1) until rebutton.Text == "Rainbow Mode: Off"
     end    
         end)
     
