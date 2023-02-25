@@ -51,12 +51,12 @@ if game.PlaceId == 189707 then
         if music then
         music:Destroy()
         end
-    local pole2 = 1
+    local pole2 = math.random(1, 7)
     local Event = game:GetService("ReplicatedStorage").Remotes.ChangeColourUsingToken
 
     
     local parole1 = "\u{1F528}" --- put here any text.
-    local parole2 = 1
+    local parole2 = math.random(1, 7)
     local EEvent = game:GetService("ReplicatedStorage").Remotes.ChangeColourUsingToken
 --    EEvent:FireServer("\u{1F528}", 1)
     wait(.5)
@@ -184,7 +184,7 @@ local Players = game:GetService("Players")
     submitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     submitButton.MouseButton1Click:Connect(function()
         local pole1 = inputBox.Text
-        Event:FireServer(pole1, pole2)
+        Event:FireServer(pole1, math.random(1, 7))
         if pole1 == "Black" or pole1 == "Blue" or pole1 == "Green" or pole1 == "Orange" or pole1 == "Yellow" or pole1 == "Pink" or pole1 == "Purple" or pole1 == "Red" or pole1 == "White" then
             --[[local R_1 = game:GetService("Players").LocalPlayer.PlayerGui.HideColourUI.HideColourFrame.PointsPurchase
             local REvent = game:GetService("ReplicatedStorage").Remotes["Hidden/ShowEvent"]
@@ -203,7 +203,10 @@ local Players = game:GetService("Players")
         
         game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Hidden/ShowEvent"):FireServer(unpack(args))        isShowing = false
 
-        end
+        
+    elseif pole1 == "Rainbow" then
+        repeat  Event:FireServer("Rainbow", math.random(1, 7)) wait(.1) until pole1 ~= "Rainbow" 
+    end    
         end)
     
         
@@ -245,3 +248,15 @@ local Players = game:GetService("Players")
     
     end)
 end
+
+while not (game:GetService("ReplicatedStorage"):FindFirstChild("Remotes") and
+           game:GetService("ReplicatedStorage").Remotes:FindFirstChild("ChangeCamera") and
+           game:GetService("ReplicatedStorage").Remotes:FindFirstChild("ChangeCamera2")) do
+    wait(1)
+end
+
+game:GetService("ReplicatedStorage").Remotes.ChangeCamera:Destroy()
+game:GetService("ReplicatedStorage").Remotes.ChangeCamera2:Destroy()
+game:GetService("ReplicatedStorage").Remotes.FixBUg:Destroy()
+
+
