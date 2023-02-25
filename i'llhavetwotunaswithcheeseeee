@@ -167,7 +167,7 @@ local Players = game:GetService("Players")
 
     rebutton.MouseButton1Click:Connect(function()
         if rebutton.Text == "Rainbow Mode: On" then
-            Event:FireServer("White", math.random(1, 7))
+            Event:FireServer("Blue",4)
         elseif rebutton.Text == "Rainbow Mode: Off" then
             repeat Event:FireServer("Rainbow", math.random(1, 7)) wait(.1) until rebutton.Text == "Rainbow Mode: Off"
 
