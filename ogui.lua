@@ -1,3 +1,5 @@
+local suc, fail = pcall(function()
+
 if not _G.require then
 	_G.require = require
 end
@@ -3042,3 +3044,10 @@ RunService.RenderStepped:Connect(function()
 		end
 	end
 end)
+
+	end)
+
+
+if not suc then
+	warn("OpenGUI Error "..fail
+	end
