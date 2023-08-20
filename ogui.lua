@@ -3042,8 +3042,3 @@ RunService.RenderStepped:Connect(function()
 		end
 	end
 end)
-
-
-if not suc then
-	warn("OpenGUI Error "..fail
-	end
